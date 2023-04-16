@@ -14,7 +14,7 @@ const message = document.querySelector(".message");
 //where messages appear after player guesses a letter
 const playAgain = document.querySelector(".play-again");
 //hidden play again button
-const inputInsruction = document.querySelector("form label");
+const inputInsruction = document.querySelector(".guess-form label");
 
 let word = "magnolia";
 let guessedLetters = [];
@@ -129,7 +129,7 @@ const countGuess = function (guess) {
 
 const ifWin = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
-        message.classList.add(".win");
+        message.classList.add("win");
         message.innerHTML = '<p class="highlight">You guessed right! Congrats!</p>';
         startOver();
     }
@@ -141,7 +141,7 @@ const startOver = function () {
     guessedList.classList.add("hide");
     playAgain.classList.remove("hide");
     textInput.classList.add("hide");
-    inputInsruction.add("hide");
+    inputInsruction.classList.add("hide");
 };
 
 playAgain.addEventListener("click", function () {
@@ -152,6 +152,7 @@ playAgain.addEventListener("click", function () {
     remainingSpan.innerText = `${remainingGuesses} guesses`;
     guessedList.innerHTML = "";
     message.innerText = "";
+    
     getWord();
 
     //reveal elements
@@ -160,5 +161,5 @@ playAgain.addEventListener("click", function () {
     remaining.classList.remove("hide");
     guessedList.classList.remove("hide");
     textInput.classList.remove("hide");
-    inputInsruction.remove("hide");
+    inputInsruction.classList.remove("hide");
 });
